@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="section-title">
+    <h2>F.A.Q</h2>
+    <p>よくある質問</p>
+  </div>
+  {% for faq in site.data.faqs %}
+  <div class="row faq-item d-flex align-items-stretch">
+    <div class="col-lg-5">
+      <i class="bx bx-help-circle"></i>
+      <h4>{{ faq.q }}</h4>
+    </div>
+    <div class="col-lg-7">
+      <p>{{ faq.a | newline_to_br }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>

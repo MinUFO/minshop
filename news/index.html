@@ -1,0 +1,53 @@
+---
+title: ニュース
+menu: news
+layout: page
+---
+<section id="blog" class="blog">
+  <div class="container">
+    <div class="row">
+      {% for post in paginator.posts %}
+      <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+        <article class="entry">
+          <div class="entry-img">
+            <img src="{{ post.image | relative_url }}" alt="" class="img-fluid">
+          </div>
+          <h2 class="entry-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          <div class="entry-meta">
+            <ul>
+              <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="{{ post.url | relative_url }}"><time datetime="{{ post.date }}">{{ post.date | date_to_string: "ordinal", "JP" }}</time></a></li>
+            </ul>
+          </div>
+          <div class="entry-content">
+            <p>{{ post.excerpt }}</p>
+            <div class="read-more">
+              <a href="{{ post.url | relative_url }}">もっと見る</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    {% if paginator.total_pages > 1 %}
+    <div class="blog-pagination" data-aos="fade-up">
+      <ul class="justify-content-center">
+        {% if paginator.previous_page %}
+        {% if paginator.previous_page > 1 %}
+        <li><a href="{{ site.paginate_path | replace: ':num', '' | relative_url }}"><i class="icofont-rounded-double-left"></i></a></li>
+        {% endif %}
+        <li><a href="{{ paginator.previous_page_path | relative_url }}">{{ paginator.previous_page }}</a></li>
+        {% endif %}
+        <li class="active"><a>{{ paginator.page }}</a></li>
+        {% if paginator.next_page %}
+        <li><a href="{{ paginator.next_page_path | relative_url }}">{{ paginator.next_page }}</a></li>
+        {% if paginator.total_pages > paginator.next_page %}
+        <li><a href="{{ site.paginate_path | replace: ':num', paginator.total_pages | relative_url }}"><i class="icofont-rounded-double-right"></i></a></li>
+        {% endif %}
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>

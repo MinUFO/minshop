@@ -1,0 +1,27 @@
+---
+layout: page
+---
+<section id="blog" class="blog">
+  <div class="container">
+    <article class="entry entry-single">
+      <div class="entry-img">
+        <img src="{{ page.image | relative_url }}" alt="" class="w-100">
+      </div>
+      <h2 class="entry-title">{{ page.title }}</h2>
+      <div class="entry-meta">
+        <ul>
+          <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <time datetime="{{ page.date }}">{{ page.date | date_to_string: "ordinal", "JP" }}</time></li>
+        </ul>
+      </div>
+      <div class="entry-content">
+        {{ content }}
+      </div>
+      <div class="entry-footer clearfix">
+        <div class="float-right share">
+          <a href="http://twitter.com/share?url={{ page.url | absolute_url | uri_escape }}" title="Share on Twitter"><i class="icofont-twitter"></i></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}" title="Share on Facebook"><i class="icofont-facebook"></i></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
