@@ -4,12 +4,19 @@
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li {% if page.menu == "home" %}class="active"{% endif %}><a href="{{ "/" | prepend: site.baseurl }}">ホーム</a></li>
-        <li {% if page.menu == "function" %}class="active"{% endif %}><a href="{{ "/function.html" | prepend: site.baseurl }}">機能</a></li>
+        <li class="drop-down{% if page.menu == "features" %} active{% endif %}">
+          <a href="{{ "/features/index.html" | prepend: site.baseurl }}">機能</a>
+          <ul>
+            <li {% if page.menu == "features" and page.submenu == "user" %}class="active"{% endif %}><a href="{{ "/features/user.html" | prepend: site.baseurl }}">購入者</a></li>
+            <li {% if page.menu == "features" and page.submenu == "store" %}class="active"{% endif %}><a href="{{ "/features/store.html" | prepend: site.baseurl }}">出品者</a></li>
+            <li {% if page.menu == "features" and page.submenu == "admin" %}class="active"{% endif %}><a href="{{ "/features/admin.html" | prepend: site.baseurl }}">管理者</a></li>
+          </ul>
+        </li>
         <li {% if page.menu == "pricing" %}class="active"{% endif %}><a href="{{ "/pricing.html" | prepend: site.baseurl }}">料金</a></li>
         <li {% if page.menu == "news" %}class="active"{% endif %}><a href="{{ "/news/" | prepend: site.baseurl }}">ニュース</a></li>
         <li {% if page.menu == "contact" %}class="active"{% endif %}><a href="{{ "/contact.html" | prepend: site.baseurl }}">お問い合わせ</a></li>
       </ul>
     </nav>
-    <a href="{{ site.demourl }}" class="get-started-btn ml-auto">デモサイト</a>
+    <a href="{{ "/demo.html" | prepend: site.baseurl }}" class="get-started-btn ml-auto">デモサイト</a>
   </div>
 </header>
