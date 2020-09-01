@@ -2,45 +2,26 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-info">
-            <h3>{{ site.title }}</h3>
-            <p>
-              {{ site.address | newline_to_br }}<br><br>
-              <strong>Email:</strong> {{ site.email }}<br>
-            </p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Useful Links</h4>
+        <div class="col-lg-3 col-sm-6 footer-links">
+          <h4>機能</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/features/user.html" | prepend: site.baseurl }}">購入者</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/features/store.html" | prepend: site.baseurl }}">出品者</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/features/admin.html" | prepend: site.baseurl }}">管理者</a></li>
           </ul>
         </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Our Services</h4>
+        <div class="col-lg-3 col-sm-6 footer-links">
+          <h4>サービス</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/pricing.html" | prepend: site.baseurl }}">料金</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/news/" | prepend: site.baseurl }}">ニュース</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{{ "/contact.html" | prepend: site.baseurl }}">お問い合わせ</a></li>
           </ul>
         </div>
-        <div class="col-lg-4 col-md-6 footer-newsletter">
+        <div class="col-lg-6 footer-newsletter">
           <h4>新着情報配信サービス</h4>
           <p>最新ニュースをお届けします。</p>
-          <form action="" method="post">
+          <form action="{{ site.subscribe_url }}" method="post">
             <input type="email" name="email"><input type="submit" value="登録">
           </form>
         </div>

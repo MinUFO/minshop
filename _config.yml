@@ -31,6 +31,8 @@ address: >-
 
   東京都千代田区丸の内２丁目
 demourl: https://mingine.work
+subscribe_url: https://mingine.work
+contact_url: https://mingine.work
 
 # Build settings
 theme: minima
