@@ -1,8 +1,7 @@
 ---
 layout: default
 slides:
-  - active: true
-    title: 月額500円〜
+  - title: 月額500円〜
     image: assets/img/slide-1.jpg
     description: 初期費用不要で月額500円からECサイトの運営を始めませんか？
     button:
@@ -36,24 +35,37 @@ features:
   - title: 高速ロード
     icon: icofont-flash
     description: 商品の売買専用システムのため、不要な機能・データがなくてページロードが早くて、ユーザーに良い印象を残します。
+services:
+  - thumb: assets/img/slide-2.jpg
+    title: サーバーの構築
+    description: >-
+      ウェブサイト作成に必要な初期設定とメンテナンスは全てこちらで行いますので、WEB制作技術がなくても安心してECサイト経営ができます。
+
+      サーバーの契約、ユーザー権限設定、データベースのインストール、ソースコードのインストール、システムのコンフィグなどの作業は契約プランに問わず全て行います。
+  - thumb: assets/img/slide-3.jpg
+    title: システム移行サポート
+    description: >-
+      他のECシステムからMinGineへ移行する作業をサポートしていますので、現在稼働しているサイトの商品情報、顧客情報、注文情報、在庫情報を全てMinGineで継続して運営することができます。
+
+      EC-CUBE、WordpressのWooCommerceプラグイン、osCommerceなどオプーンソースから独自システムまで全て対応できますのでお気軽にご相談してください。
 ---
 <section id="hero">
   <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
     <div class="carousel-inner" role="listbox">
-      {% for slide in page.slides %}
-      <div class="carousel-item {% if slide.active %}active{% endif %}" style="background-image: url('{{ slide.image | relative_url }}')">
+      {%- for slide in page.slides %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{ slide.image | relative_url }}')">
         <div class="carousel-container">
           <div class="container">
             <h2 class="animate__animated animate__fadeInDown">{{ slide.title }}</h2>
             <p class="animate__animated animate__fadeInUp">{{ slide.description }}</p>
-            {% if slide.button %}
+            {%- if slide.button %}
             <a href="{{ slide.button.href }}" class="btn-get-started animate__animated animate__fadeInUp {% if slide.button.scroll %}scrollto{% endif %}">{{ slide.button.text }}</a>
-            {% endif %}
+            {%- endif %}
           </div>
         </div>
       </div>
-      {% endfor %}
+      {%- endfor %}
     </div>
     <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
@@ -92,20 +104,41 @@ features:
   <section id="features" class="services">
     <div class="container">
       <div class="section-title">
-        <h2>Feature</h2>
+        <h2>Features</h2>
         <p>MinGineの特徴</p>
       </div>
       <div class="row">
-        {% for service in page.features %}
+        {%- for feature in page.features %}
         <div class="col-md-6 mb-4">
           <div class="icon-box h-100 mb-0">
-            <i class="{{ service.icon }}"></i>
-            <h4><a>{{ service.title }}</a></h4>
-            <p>{{ service.description }}</p>
+            <i class="{{ feature.icon }}"></i>
+            <h4><a>{{ feature.title }}</a></h4>
+            <p>{{ feature.description }}</p>
           </div>
         </div>
-        {% endfor %}
+        {%- endfor %}
       </div>
+    </div>
+  </section>
+
+  <section id="services" class="features section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>MinGineの特徴</p>
+      </div>
+      {%- for service in page.services %}
+      {%- assign even = forloop.index | modulo: 2 %}
+      <div class="row mb-4">
+        <div class="col-lg-4 text-center mb-3 order-lg-{% if even == 0 %}1{% else %}3{% endif %}">
+          <img src="{{ service.thumb | relative_url }}" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-8 details mb-3 order-lg-2">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description | newline_to_br }}</p>
+        </div>
+      </div>
+      {%- endfor %}
     </div>
   </section>
 </main>

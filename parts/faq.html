@@ -3,7 +3,7 @@
     <h2>F.A.Q</h2>
     <p>よくある質問</p>
   </div>
-  {% for faq in site.data.faqs %}
+  {%- for faq in site.data.faqs %}
   <div class="row faq-item d-flex align-items-stretch">
     <div class="col-lg-5">
       <i class="bx bx-help-circle"></i>
@@ -13,5 +13,5 @@
       <p>{{ faq.a | newline_to_br }}</p>
     </div>
   </div>
-  {% endfor %}
+  {%- endfor %}
 </div>

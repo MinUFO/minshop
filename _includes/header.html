@@ -5,7 +5,7 @@
       <ul>
         <li {% if page.menu == "home" %}class="active"{% endif %}><a href="{{ "/" | relative_url }}">ホーム</a></li>
         <li class="drop-down{% if page.menu == "features" %} active{% endif %}">
-          <a href="{{ "/features/index.html" | relative_url }}">機能</a>
+          <a href="{{ "/features/" | relative_url }}">機能</a>
           <ul>
             <li {% if page.menu == "features" and page.submenu == "user" %}class="active"{% endif %}><a href="{{ "/features/user.html" | relative_url }}">購入者</a></li>
             <li {% if page.menu == "features" and page.submenu == "store" %}class="active"{% endif %}><a href="{{ "/features/store.html" | relative_url }}">出品者</a></li>

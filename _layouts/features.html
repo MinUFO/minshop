@@ -4,16 +4,16 @@ layout: page
 <section id="services" class="about features">
   <div class="container">
     <div class="features-columns content details">
-      {% for func in page.features %}
+      {%- for func in page.features %}
       <div class="d-inline-block w-100 mb-3 mb-md-4">
         <h3>{{ func.title }}</h3>
         <ul>
-          {% for val in func.values %}
+          {%- for val in func.values %}
           <li><i class="ri-check-double-line"></i><p>{{ val }}</p></li>
-          {% endfor %}
+          {%- endfor %}
         </ul>
       </div>
-      {% endfor %}
+      {%- endfor %}
     </div>
   </div>
 </section>

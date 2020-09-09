@@ -2,38 +2,64 @@
 title: 機能
 menu: features
 layout: page
+services:
+  - title: C2C
+    icon: bx bx-share-alt
+    description: ユーザが出品でも購入でもできるシステムを提供しております。
+  - title: AWS対応
+    icon: bx bxl-amazon
+    description: 全てのプランはAWSで稼働していますので、安心してご利用いただけます。
+  - title: バージョンアップデート
+    icon: bx bx-check-shield
+    description: 新しいバージョンがリリースされる時に無料でアップデートできるオプションを設置しております。
+  - title: 当日サポート
+    icon: bx bx-support
+    description: 年中無給チャットやメールなどでサポートしております。最短で当日に返信いたします。
+tabs:
+  - id: tab-user
+    text: 購入者機能
+    title: 販売中の商品を購入する
+    description: 商品検索から購入手続きまで全てウェブブラウザで行いますので、どこでどんなデバイスを使っても購入は簡単です。
+    details:
+      - パソコンでもスマホでも表示できるレスポンシブデザイン
+      - クレジット決済・QRコード決済
+      - ポイントシステム
+    url: /features/user.html
+    image: /assets/img/feature-1.svg
+  - id: tab-store
+    text: 出品者機能
+    title: 商品を出品する
+    description: システムに店舗登録して売りたい商品を無制限で出品できます。
+    details:
+      - 商品登録
+      - 注文処理
+      - 在庫管理
+      - 売上集計
+    url: /features/store.html
+    image: /assets/img/feature-2.svg
+  - id: tab-admin
+    text: 管理者機能
+    title: システム全体を管理する
+    description: 管理者としてシステム情報の管理、設定情報の変更ができます。
+    details:
+      - システム設定
+      - ユーザー管理
+      - 商品管理
+    url: /features/admin.html
+    image: /assets/img/feature-3.svg
 ---
 <section id="services" class="services">
   <div class="container">
     <div class="row">
+      {%- for service in page.services %}
       <div class="col-md-6 mb-4">
         <div class="icon-box h-100 mb-0">
-          <i class="bx bx-share-alt"></i>
-          <h4>C2C</h4>
-          <p>ユーザが出品でも購入でもできるシステムを提供しております。</p>
+          <i class="{{ service.icon }}"></i>
+          <h4>{{ service.title }}</h4>
+          <p>{{ service.description }}</p>
         </div>
       </div>
-      <div class="col-md-6 mb-4">
-        <div class="icon-box h-100 mb-0">
-          <i class="bx bxl-amazon"></i>
-          <h4>AWS対応</h4>
-          <p>全てのプランはAWSで稼働していますので、安心してご利用いただけます。</p>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="icon-box h-100 mb-0">
-          <i class="bx bx-check-shield"></i>
-          <h4>バージョンアップデート</h4>
-          <p>新しいバージョンがリリースされる時に無料でアップデートできるオプションを設置しております。</p>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="icon-box h-100 mb-0">
-          <i class="bx bx-support"></i>
-          <h4>当日サポート</h4>
-          <p>年中無給チャットやメールなどでサポートしております。最短で当日に返信いたします。</p>
-        </div>
-      </div>
+      {%- endfor %}
     </div>
   </div>
 </section>
@@ -47,83 +73,38 @@ layout: page
     <div class="row">
       <div class="col-lg-3">
         <ul class="nav nav-tabs flex-column">
+          {%- for tab in page.tabs %}
           <li class="nav-item">
-            <a class="nav-link active show" data-toggle="tab" href="#tab-user">購入者機能</a>
+            <a class="nav-link {% if forloop.first %}active show{% endif %}" data-toggle="tab" href="#{{ tab.id }}">{{ tab.text }}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tab-store">出品者機能</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tab-admin">管理者機能</a>
-          </li>
+          {%- endfor %}
         </ul>
       </div>
       <div class="col-lg-9 mt-4 mt-lg-0">
         <div class="tab-content">
-          <div class="tab-pane active show" id="tab-user">
+          {%- for tab in page.tabs %}
+          <div class="tab-pane {% if forloop.first %}active show{% endif %}" id="{{ tab.id }}">
             <div class="row">
               <div class="col-lg-8 details order-2 order-lg-1">
-                <h3>販売中の商品を購入する</h3>
-                <p class="font-italic mb-0">商品検索から購入手続きまで全てウェブブラウザで行いますので、どこでどんなデバイスを使っても購入は簡単です。</p>
+                <h3>{{ tab.title }}</h3>
+                <p class="font-italic mb-0">{{ tab.description }}</p>
                 <div class="about">
                   <div class="content">
                     <ul>
-                      <li><i class="ri-check-double-line"></i><p>パソコンでもスマホでも表示できるレスポンシブデザイン</p></li>
-                      <li><i class="ri-check-double-line"></i><p>クレジット決済・QRコード決済</p></li>
-                      <li><i class="ri-check-double-line"></i><p>ポイントシステム</p></li>
+                      {%- for feature in tab.details %}
+                      <li><i class="ri-check-double-line"></i><p>{{ feature }}</p></li>
+                      {%- endfor %}
                     </ul>
                   </div>
                 </div>
-                <p><a href="{{ "/features/user.html" | relative_url }}">もっと見る</a></p>
+                <p><a href="{{ tab.url | relative_url }}">もっと見る</a></p>
               </div>
               <div class="col-lg-4 text-center order-1 order-lg-2">
-                <img src="{{ "/assets/img/feature-1.svg" | relative_url }}" alt="" class="img-fluid">
+                <img src="{{ tab.image | relative_url }}" alt="" class="img-fluid">
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="tab-store">
-            <div class="row">
-              <div class="col-lg-8 details order-2 order-lg-1">
-                <h3>商品を出品する</h3>
-                <p class="font-italic mb-0">システムに店舗登録して売りたい商品を無制限で出品できます。</p>
-                <div class="about">
-                  <div class="content">
-                    <ul>
-                      <li><i class="ri-check-double-line"></i><p>商品登録</p></li>
-                      <li><i class="ri-check-double-line"></i><p>注文処理</p></li>
-                      <li><i class="ri-check-double-line"></i><p>在庫管理</p></li>
-                      <li><i class="ri-check-double-line"></i><p>売上集計</p></li>
-                    </ul>
-                  </div>
-                </div>
-                <p><a href="{{ "/features/store.html" | relative_url }}">もっと見る</a></p>
-              </div>
-              <div class="col-lg-4 text-center order-1 order-lg-2">
-                <img src="{{ "/assets/img/feature-2.svg" | relative_url }}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-admin">
-            <div class="row">
-              <div class="col-lg-8 details order-2 order-lg-1">
-                <h3>システム全体を管理する</h3>
-                <p class="font-italic mb-0">管理者としてシステム情報の管理、設定情報の変更ができます。</p>
-                <div class="about">
-                  <div class="content">
-                    <ul>
-                      <li><i class="ri-check-double-line"></i><p>システム設定</p></li>
-                      <li><i class="ri-check-double-line"></i><p>ユーザー管理</p></li>
-                      <li><i class="ri-check-double-line"></i><p>商品管理</p></li>
-                    </ul>
-                  </div>
-                </div>
-                <p><a href="{{ "/features/store.html" | relative_url }}">もっと見る</a></p>
-              </div>
-              <div class="col-lg-4 text-center order-1 order-lg-2">
-                <img src="{{ "/assets/img/feature-3.svg" | relative_url }}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
+          {%- endfor %}
         </div>
       </div>
     </div>
