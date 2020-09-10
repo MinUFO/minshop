@@ -13,8 +13,10 @@ plans:
     na:
       - バックアップ
       - 広告なし
+    url: "#"
   - title: スタート
     price: 1000
+    recommend: true
     features:
       - 初期費用不要
       - 500GB転送
@@ -23,6 +25,7 @@ plans:
     na:
       - バックアップ
       - 広告なし
+    url: "#"
   - title: プレミアム
     price: 2000
     features:
@@ -32,6 +35,7 @@ plans:
       - メールサポート
       - バックアップ
       - 広告なし
+    url: "#"
   - title: ビジネス
     badge: カスタム
     price: 5000~
@@ -42,6 +46,7 @@ plans:
       - バージョン更新
       - デザイン変更
       - 広告設定
+    url: "#"
 ---
 <section id="pricing" class="pricing">
   <div class="container">
@@ -58,7 +63,7 @@ plans:
           {%- endif %}
         {%- endif %}
       <div class="col-lg-3 col-md-6{{ mt }}">
-        <div class="box">
+        <div class="box {% if plan.recommend %}featured{% endif %}">
           {%- if plan.badge %}
           <span class="advanced">{{ plan.badge }}</span>
           {%- endif %}
@@ -73,7 +78,7 @@ plans:
             {%- endfor %}
           </ul>
           <div class="btn-wrap">
-            <a href="#" class="btn-buy">申し込み</a>
+            <a href="{{ plan.url }}" class="btn-buy">申し込み</a>
           </div>
         </div>
       </div>
