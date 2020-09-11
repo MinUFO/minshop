@@ -3,6 +3,17 @@ layout: page
 ---
 <section id="services" class="about features">
   <div class="container">
+    {%- if page.slides %}
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 col-xl-8 portfolio-details">
+        <div class="owl-carousel portfolio-details-carousel">
+          {%- for slide in page.slides %}
+          <img src="{{ slide | relative_url }}" class="img-fluid border" alt="">
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    {%- endif %}
     <div class="features-columns content details">
       {%- for func in page.features %}
       <div class="d-inline-block w-100 mb-3 mb-md-4">
