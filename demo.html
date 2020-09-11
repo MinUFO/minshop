@@ -1,6 +1,12 @@
 ---
 title: デモサイト
 layout: page
+front_url: https://mingine.work
+front_user: demo@email.com
+front_pass: 12345678
+admin_url: https://admin.mingine.work
+admin_id: admin
+admin_pass: 12345678
 ---
 <section id="portfolio-details" class="portfolio-details">
   <div class="container">
@@ -13,11 +19,17 @@ layout: page
         </div>
       </div>
       <div class="col-md-5 portfolio-info">
-        <h3>DEMOサイト情報</h3>
+        <h3 class="portfolio-title font-weight-bold">DEMOサイト情報</h3>
         <ul>
-          <li><strong>URL</strong>: <a href="{{ site.demourl }}">{{ site.demourl }}</a></li>
-          <li><strong>ユーザーID</strong>: demo@email.com</li>
-          <li><strong>パスワード</strong>: 12345678</li>
+          <li><strong>URL</strong>: <a href="{{ page.front_url }}">{{ page.front_url }}</a></li>
+          <li><strong>ユーザーID</strong>: {{ page.front_user }}</li>
+          <li><strong>パスワード</strong>: {{ page.front_pass }}</li>
+        </ul>
+        <h3 class="portfolio-title font-weight-bold mt-5">管理者情報</h3>
+        <ul>
+          <li><strong>URL</strong>: <a href="{{ page.admin_url }}">{{ page.admin_url }}</a></li>
+          <li><strong>ユーザーID</strong>: {{ page.admin_id }}</li>
+          <li><strong>パスワード</strong>: {{ page.admin_pass }}</li>
         </ul>
         <p>上記の情報でログインできない場合、お問い合わせください。</p>
       </div>
