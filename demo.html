@@ -2,3 +2,25 @@
 title: デモサイト
 layout: page
 ---
+<section id="portfolio-details" class="portfolio-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="owl-carousel portfolio-details-carousel">
+          <img src="{{ "/assets/img/demo-1.png" | relative_url }}" class="img-fluid border" alt="">
+          <img src="{{ "/assets/img/demo-2.png" | relative_url }}" class="img-fluid border" alt="">
+          <img src="{{ "/assets/img/demo-3.png" | relative_url }}" class="img-fluid border" alt="">
+        </div>
+      </div>
+      <div class="col-md-5 portfolio-info">
+        <h3>DEMOサイト情報</h3>
+        <ul>
+          <li><strong>URL</strong>: <a href="{{ site.demourl }}">{{ site.demourl }}</a></li>
+          <li><strong>ユーザーID</strong>: demo@email.com</li>
+          <li><strong>パスワード</strong>: 12345678</li>
+        </ul>
+        <p>上記の情報でログインできない場合、お問い合わせください。</p>
+      </div>
+    </div>
+  </div>
+</section>
