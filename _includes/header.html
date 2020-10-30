@@ -1,5 +1,5 @@
 <header id="header" class="fixed-top header-inner-pages">
-  <div class="container d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
     <a href="{{ "/" | relative_url }}" class="logo"><img src="{{ "/assets/img/logo.svg" | relative_url }}" alt="" class="img-fluid"></a>
     <nav class="nav-menu d-none d-lg-block">
       <ul>
@@ -17,6 +17,9 @@
         <li {% if page.menu == "contact" %}class="active"{% endif %}><a href="{{ "/contact.html" | relative_url }}">お問い合わせ</a></li>
       </ul>
     </nav>
-    <a href="{{ "/demo.html" | relative_url }}" class="get-started-btn ml-auto">デモサイト</a>
+    <div class="flex-grow-1 d-flex align-items-center justify-content-end">
+      <a href="{{ "/demo.html" | relative_url }}" class="get-started-btn">デモサイト</a>
+      <button type="button" class="mobile-nav-toggle ml-2 d-lg-none"><i class="icofont-navigation-menu"></i></button>
+    </div>
   </div>
 </header>

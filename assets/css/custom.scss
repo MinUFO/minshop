@@ -1,7 +1,14 @@
 ---
 ---
 .mobile-nav-toggle {
-    top: 20px;
+    position: initial;
+    z-index: inherit;
+}
+.mobile-nav-active .mobile-nav-toggle i {
+    color: #556270;
+}
+.get-started-btn {
+    margin: 0;
 }
 .features-columns {
     -webkit-column-count: 1;
