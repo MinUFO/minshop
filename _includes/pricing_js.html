@@ -1,0 +1,44 @@
+<script>
+    $(document).ready(function () {
+        let plans = new Vue({
+            el: '#pricing',
+            data: {
+                items: [],
+            },
+            methods: {
+                formatPrice: function (price) {
+                    price = parseFloat(price);
+                    if (!isNaN(price)) {
+                        return Math.floor(price).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                    }
+                    return '--';
+                },
+                features: function (item) {
+                    return item.plan_features.filter(function (feature) {
+                        return feature.available;
+                    });
+                },
+                notAvailable: function (item) {
+                    return item.plan_features.filter(function (feature) {
+                        return !feature.available;
+                    });
+                },
+            },
+        });
+        $.ajax({
+            url: '{{page.plans_url}}',
+            success: function (data) {
+                if (Array.isArray(data)) {
+                    plans.items = data;
+                }
+            },
+            complete: function () {
+                if (!plans.items || plans.items.length < 1) {
+                    $.getJSON('{{ "/assets/plans.json" | relative_url }}', function (data) {
+                        plans.items = data;
+                    });
+                }
+            },
+        });
+    });
+</script>

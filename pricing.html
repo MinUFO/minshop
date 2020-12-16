@@ -2,87 +2,30 @@
 title: 料金
 menu: pricing
 layout: page
-plans:
-  - title: ライト
-    price: 500
-    features:
-      - 初期費用不要
-      - 100GB転送
-      - 5GBディスク
-      - メールサポート
-    na:
-      - バックアップ
-      - 広告なし
-    url: "#"
-  - title: スタート
-    price: 1000
-    recommend: true
-    features:
-      - 初期費用不要
-      - 500GB転送
-      - 10GBディスク
-      - メールサポート
-    na:
-      - バックアップ
-      - 広告なし
-    url: "#"
-  - title: プレミアム
-    price: 2000
-    features:
-      - 初期費用不要
-      - 1TB転送
-      - 20GBディスク
-      - メールサポート
-      - バックアップ
-      - 広告なし
-    url: "#"
-  - title: ビジネス
-    badge: カスタム
-    price: 5000~
-    features:
-      - サーバー構築
-      - ドメイン設定
-      - チャットサポート
-      - バージョン更新
-      - デザイン変更
-      - 広告設定
-    url: "#"
+custom_js: pricing_js.html
+plans_url: http://3.114.71.171/api/plans.json
 ---
 <section id="pricing" class="pricing">
   <div class="container">
     <div class="row">
-      {%- for plan in page.plans %}
-        {%- assign mt = '' %}
-        {%- if forloop.index > 1 %}
-          {%- if forloop.index == 2 %}
-            {%- assign mt = ' mt-4 mt-md-0' %}
-          {%- elsif forloop.index > 4 %}
-            {%- assign mt = ' mt-4' %}
-          {%- else %}
-            {%- assign mt = ' mt-4 mt-lg-0' %}
-          {%- endif %}
-        {%- endif %}
-      <div class="col-lg-3 col-md-6{{ mt }}">
-        <div class="box {% if plan.recommend %}featured{% endif %}">
-          {%- if plan.badge %}
-          <span class="advanced">{{ plan.badge }}</span>
-          {%- endif %}
-          <h3>{{ plan.title }}</h3>
-          <h4><sup>￥</sup>{{ plan.price }}<span> / 月</span></h4>
-          <ul>
-            {%- for feature in plan.features %}
-            <li>{{ feature }}</li>
-            {%- endfor %}
-            {%- for na in plan.na %}
-            <li class="na">{{ na }}</li>
-            {%- endfor %}
-          </ul>
-          <div class="btn-wrap">
-            <a href="{{ plan.url }}" class="btn-buy">申し込み</a>
+      {% raw %}
+      <template v-for="(plan, key, index) in items">
+        <div class="col-lg-3 col-md-6" v-bind:class="{'mt-4': index > 0, 'mt-md-0': index === 1, 'mt-lg-0': index === 2 || index === 3}">
+          <div class="box" v-bind:class="{'featured': plan.recommend}">
+            <span class="advanced" v-if="plan.flexible">カスタム</span>
+            <h3>{{ plan.name }}</h3>
+            <h4><sup>￥</sup>{{ formatPrice(plan.price) }}<template v-if="plan.flexible">~</template><span> / 月</span></h4>
+            <ul>
+              <li v-for="feature in features(plan)">{{ feature.display_text }}</li>
+              <li class="na" v-for="feature in notAvailable(plan)">{{ feature.display_text }}</li>
+            </ul>
+            <div class="btn-wrap">
+              <a v-bind:href="plan.url" class="btn-buy">申し込み</a>
+            </div>
           </div>
         </div>
-      </div>
-      {%- endfor %}
+      </template>
+      {% endraw %}
     </div>
   </div>
 </section>

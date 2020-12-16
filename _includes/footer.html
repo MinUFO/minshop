@@ -45,4 +45,9 @@
 <script src="{{ "/assets/lib/venobox/venobox.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/lib/waypoints/jquery.waypoints.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/lib/owl.carousel/owl.carousel.min.js" | relative_url }}"></script>
+<script src="{{ "/assets/lib/vue/vue.min.js" | relative_url }}"></script>
 <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+
+{% if page.custom_js %}
+  {% include {{ page.custom_js }} %}
+{% endif %}
