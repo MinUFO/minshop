@@ -24,7 +24,7 @@ layout: page
         <form action="{{ site.contact_url }}" method="post" role="form" class="php-email-form">
           <div class="form-row">
             <div class="col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="お名前" data-rule="minlen:4" data-msg="４文字以上入力してください" />
+              <input type="text" name="name" class="form-control" id="name" placeholder="お名前" maxlength="50" data-rule="minlen:4" data-msg="４文字以上入力してください" />
               <div class="validate"></div>
             </div>
             <div class="col-md-6 form-group">
@@ -33,11 +33,11 @@ layout: page
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="件名" data-rule="minlen:4" data-msg="８文字以上入力してください" />
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="件名" maxlength="128" data-rule="minlen:4" data-msg="８文字以上入力してください" />
             <div class="validate"></div>
           </div>
           <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="お問い合わせ内容を入力してください" placeholder="お問い合わせ内容"></textarea>
+            <textarea class="form-control" name="message" rows="5" data-rule="required" maxlength="512" data-msg="お問い合わせ内容を入力してください" placeholder="お問い合わせ内容"></textarea>
             <div class="validate"></div>
           </div>
           <div class="mb-3">
