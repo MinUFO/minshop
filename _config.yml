@@ -30,8 +30,8 @@ address: >-
   〒100-0005
 
   東京都千代田区丸の内２丁目
-subscribe_url: https://mingine.work
-contact_url: https://mingine.work
+subscribe_url: https://mingine.minufo.work/api/subscribe
+contact_url: https://mingine.minufo.work/api/contact
 
 # Build settings
 theme: minima
