@@ -19,7 +19,6 @@
 # in the templates via {{ site.myvariable }}.
 
 title: MinGine
-email: mingine@minufo.com
 description: >- # this means to ignore newlines until "keywords:"
   クラウドサーバーでECサイトの構築と運営のサポートを格安・低コストで導入できるシステムを提供しております。
   安全・安定・安心、１コインからECサイト運営できるみんなのエンジン「MinGine」です。
@@ -27,15 +26,12 @@ keywords: >- # this means to ignore newlines until "baseurl:"
   mingine,ミンジン,c2c,ctoc,売買,ec,コマース,eコマース,ecサイト,web,site,website,ウェブ,サイト,ウェブサイト,
   infra,インフラ,server,サーバー,サーバー構築,host,hosting,ホスト,domain,ドメイン,cloud,クラウド,AWS,
   speed,security,安い,安価,速い,高速,安全,安定,安心,高速ロード,seo,seo対策,
-  1coin,1コイン,ワンコイン,500円,480円,1000円以内,1000円未満
+  1coin,1コイン,ワンコイン,500円,480円,1000円以内,1000円未満,
+  mindebu,ミンデブ
 baseurl: "/mingine" # the subpath of your site, e.g. /blog
-url: "https://minufo.work" # the base hostname & protocol for your site, e.g. http://example.com
-address: >-
-  〒100-0005
-
-  東京都千代田区丸の内２丁目
-subscribe_url: https://mingine.minufo.work/api/subscribe
-contact_url: https://mingine.minufo.work/api/contact
+url: "https://mindebu.com" # the base hostname & protocol for your site, e.g. http://example.com
+subscribe_url: https://mingine.mindebu.com/api/subscribe
+contact_url: https://mingine.mindebu.com/api/contact
 
 # Build settings
 theme: minima
