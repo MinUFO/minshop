@@ -2,22 +2,31 @@
 title: お問い合わせ
 menu: contact
 layout: page
+contact_list:
+  - class: address
+    icon: icofont-google-map
+    title: 住所
+    text: >-
+      〒100-0005
+
+      東京都千代田区丸の内２丁目
+  - class: email
+    icon: icofont-envelope
+    title: メールアドレス
+    text: mingine@mindebu.com
 ---
 <section id="contact" class="contact">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="info">
-          <div class="address">
-            <i class="icofont-google-map"></i>
-            <h4>住所</h4>
-            <p>{{ site.address }}</p>
+          {%- for contact in page.contact_list %}
+          <div class="{{ contact.class }}">
+            <i class="{{ contact.icon }}"></i>
+            <h4>{{ contact.title }}</h4>
+            <p>{{ contact.text }}</p>
           </div>
-          <div class="email">
-            <i class="icofont-envelope"></i>
-            <h4>メールアドレス</h4>
-            <p>{{ site.email }}</p>
-          </div>
+          {%- endfor %}
         </div>
       </div>
       <div class="col-lg-8 mt-5 mt-lg-0">
