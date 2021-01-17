@@ -9,7 +9,7 @@ plans_url: https://mingine.mindebu.com/api/plans.json
   <div class="container">
     <div class="row">
       {% raw %}
-      <template v-for="(plan, key, index) in items">
+      <template v-for="(plan, index) in items">
         <div class="col-lg-3 col-md-6" v-bind:class="{'mt-4': index > 0, 'mt-md-0': index === 1, 'mt-lg-0': index === 2 || index === 3}">
           <div class="box" v-bind:class="{'featured': plan.recommend}">
             <span class="advanced" v-if="plan.flexible">カスタム</span>
