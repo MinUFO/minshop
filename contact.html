@@ -2,7 +2,7 @@
 title: お問い合わせ
 menu: contact
 layout: page
-contact_list:
+contactMethods:
   - icon: icofont-envelope
     title: メールアドレス
     text: mingine@mindebu.com
@@ -15,8 +15,8 @@ contact_list:
     <div class="row">
       <div class="col-lg-4">
         <div class="info">
-          {%- for (contact, index) in page.contact_list %}
-          <div v-bind:class="index > 0 ? 'email' : 'address'">
+          {%- for contact in page.contactMethods %}
+          <div v-bind:class="forloop.index > 0 ? 'email' : 'address'">
             <i class="{{ contact.icon }}"></i>
             <h4>{{ contact.title }}</h4>
             <p>{{ contact.text }}</p>
