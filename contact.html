@@ -6,9 +6,6 @@ contactMethods:
   - icon: icofont-envelope
     title: メールアドレス
     text: mingine@mindebu.com
-  - icon: icofont-phone
-    title: 電話番号
-    text: 準備中
 ---
 <section id="contact" class="contact">
   <div class="container">
@@ -16,7 +13,7 @@ contactMethods:
       <div class="col-lg-4">
         <div class="info">
           {%- for contact in page.contactMethods %}
-          <div v-bind:class="forloop.index > 0 ? 'email' : 'address'">
+          <div class="{% if forloop.index > 0 %}email{% else %}address{% endif %}">
             <i class="{{ contact.icon }}"></i>
             <h4>{{ contact.title }}</h4>
             <p>{{ contact.text }}</p>
