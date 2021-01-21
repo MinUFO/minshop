@@ -3,6 +3,7 @@ title: サービス開始
 menu: news
 layout: news
 image: https://picsum.photos/1200/800
+date: 2021-01-01 08:30:00 +0000
 ---
 
 オンラインショッピング運営サポートシステム「MinGine」が令和３年１月１日よりサービスオープンしました。<!--more-->

@@ -10,7 +10,7 @@ layout: page
       <h2 class="entry-title">{{ page.title }}</h2>
       <div class="entry-meta">
         <ul>
-          <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <time datetime="{{ page.date }}">{{ page.date | date_to_string: "ordinal", "JP" }}</time></li>
+          <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <time datetime="{{ page.date }}">{{ page.date | date: "%Y/%m/%d %H:%M" }}</time></li>
         </ul>
       </div>
       <div class="entry-content">

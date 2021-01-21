@@ -17,7 +17,7 @@ layout: page
           </h2>
           <div class="entry-meta">
             <ul>
-              <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="{{ post.url | relative_url }}"><time datetime="{{ post.date }}">{{ post.date | date_to_string: "ordinal", "JP" }}</time></a></li>
+              <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="{{ post.url | relative_url }}"><time datetime="{{ post.date }}">{{ post.date | date: "%Y/%m/%d %H:%M" }}</time></a></li>
             </ul>
           </div>
           <div class="entry-content">
