@@ -34,3 +34,41 @@
     padding: 7px;
     display: inline-block;
 }
+.terms-content {
+    section {
+        padding: 0;
+        &:not(:last-of-type) {
+            margin-bottom: 1.5rem;
+        }
+        h5 {
+            font-weight: bold;
+            text-align: center;
+        }
+        h6 {
+            font-weight: bolder;
+            &:not(:first-of-type) {
+                margin-top: 1rem;
+            }
+        }
+        ol {
+            padding-left: 2rem;
+            margin-bottom: 0;
+            ol {
+                list-style-type: lower-roman;
+                ol {
+                    list-style: lower-alpha;
+                }
+            }
+        }
+        p {
+            margin-bottom: 0;
+        }
+        .terms-history {
+            font-size: .875rem !important;
+            line-height: 1.5 !important;
+            margin-top: 1rem;
+            padding-top: 10px;
+            border-top: 1px solid #e6e6e6;
+        }
+    }
+}

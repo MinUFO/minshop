@@ -1,0 +1,16 @@
+<script>
+    $(document).ready(function () {
+        let terms = new Vue({
+            el: '#terms',
+            data: {
+                content: '<section class="py-5"><h5 class="my-5">準備中</h5></section>',
+            },
+        });
+        $.ajax({
+            url: '{{page.terms_url}}',
+            success: function (data) {
+                terms.content = data;
+            },
+        });
+    });
+</script>
