@@ -58,8 +58,8 @@
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
     });
-    $('body').append($mobile_nav);
-    $('body').append('<div class="mobile-nav-overly"></div>');
+    $('.mobile-nav-toggle').after($mobile_nav);
+    $('.mobile-nav-toggle').after('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
       $('body').toggleClass('mobile-nav-active');
