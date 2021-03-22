@@ -5,17 +5,17 @@ layout: page
 custom_js: pricing_js.html
 plans_url: https://mingine.mindebu.com/api/plans.json
 ---
-<section id="pricing" class="pricing">
+<section id="pricing" class="pricing fade">
   <div class="container">
-    <div class="row">
-      {% raw %}
+    {% raw %}
+    <div class="row" v-if="items.length &gt; 0">
       <template v-for="(plan, index) in items">
-        <div class="col-lg-3 col-md-6" v-bind:class="{'mt-4': index > 0, 'mt-md-0': index === 1, 'mt-lg-0': index === 2 || index === 3}">
-          <div class="box" v-bind:class="{'featured': plan.recommend}">
+        <div class="col-xl-3 col-md-6" v-bind:class="{'mt-4': index > 0, 'mt-md-0': index === 1, 'mt-xl-0': index === 2 || index === 3}">
+          <div class="box d-flex flex-column h-100" v-bind:class="{'featured': plan.recommend}">
             <span class="advanced" v-if="plan.flexible">カスタム</span>
             <h3>{{ plan.name }}</h3>
             <h4><sup>￥</sup>{{ formatPrice(plan.price) }}<template v-if="plan.flexible">~</template><span> / 月</span></h4>
-            <ul>
+            <ul class="flex-grow-1 mb-0">
               <li v-for="feature in features(plan)">{{ feature.display_text }}</li>
               <li class="na" v-for="feature in notAvailable(plan)">{{ feature.display_text }}</li>
             </ul>
@@ -25,8 +25,9 @@ plans_url: https://mingine.mindebu.com/api/plans.json
           </div>
         </div>
       </template>
-      {% endraw %}
     </div>
+    <p class="h2 text-center pt-5" v-else>料金表準備中</p>
+    {% endraw %}
   </div>
 </section>
 

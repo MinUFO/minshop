@@ -24,19 +24,15 @@
                     });
                 },
             },
+            mounted: function () {
+                $(this.$el).addClass('show');
+            },
         });
         $.ajax({
             url: '{{page.plans_url}}',
             success: function (data) {
                 if (Array.isArray(data)) {
                     plans.items = data;
-                }
-            },
-            complete: function () {
-                if (!plans.items || plans.items.length < 1) {
-                    $.getJSON('{{ "/assets/plans.json" | relative_url }}', function (data) {
-                        plans.items = data;
-                    });
                 }
             },
         });
