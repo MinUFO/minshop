@@ -16,6 +16,7 @@ plans_url: https://mingine.mindebu.com/api/plans.json
             <h3>{{ plan.name }}</h3>
             <h4><sup>￥</sup>{{ formatPrice(plan.price) }}<template v-if="plan.flexible">~</template><span> / 月</span></h4>
             <ul class="flex-grow-1 mb-0">
+              <li class="text-muted" v-if="plan.price_with_tax">（税込<strong class="h6">{{ formatPrice(plan.price_with_tax) }}</strong>円）</li>
               <li v-for="feature in features(plan)">{{ feature.display_text }}</li>
               <li class="na" v-for="feature in notAvailable(plan)">{{ feature.display_text }}</li>
             </ul>
