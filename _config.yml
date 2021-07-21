@@ -27,11 +27,11 @@ keywords: >- # this means to ignore newlines until "baseurl:"
   infra,インフラ,server,サーバー,サーバー構築,host,hosting,ホスト,domain,ドメイン,cloud,クラウド,AWS,
   speed,security,安い,安価,速い,高速,安全,安定,安心,高速ロード,seo,seo対策,
   1coin,1コイン,ワンコイン,500円,480円,1000円以内,1000円未満,
-  mindebu,ミンデブ
+  mintotal,ミントータル
 baseurl: "/mingine" # the subpath of your site, e.g. /blog
-url: "https://mindebu.com" # the base hostname & protocol for your site, e.g. http://example.com
-subscribe_url: https://mingine.mindebu.com/api/subscribe
-contact_url: https://mingine.mindebu.com/api/contact
+url: "https://mintotal.com" # the base hostname & protocol for your site, e.g. http://example.com
+subscribe_url: https://mingine.mintotal.com/api/subscribe
+contact_url: https://mingine.mintotal.com/api/contact
 
 # Build settings
 theme: minima
